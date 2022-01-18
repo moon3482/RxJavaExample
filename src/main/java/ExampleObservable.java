@@ -25,7 +25,7 @@ class ExampleObservable {
                         emitter.onNext("1");
                         emitter.onNext("2");
                         emitter.onComplete();
-                        emitter.onError(new Throwable("에러가 남"));
+//                        emitter.onError(new Throwable("에러가 남"));
                         emitter.onNext("3");
                         emitter.onNext("5");
 
