@@ -17,6 +17,7 @@ import java.util.concurrent.*;
 
 /**
  * create
+ * Observable 생성연산자
  */
 class ExampleObservableCreate {
     public static void main(String[] args) {
@@ -55,6 +56,7 @@ class ExampleObservableCreate {
 
 /**
  * Just
+ *
  */
 
 class ExampleObservableJust {
@@ -207,11 +209,12 @@ class ExampleObservableFrom {
  */
 class ExampleObservableInterval {
     public static void main(String[] args) {
-        Observable.interval(100L, TimeUnit.MILLISECONDS)
-                .subscribe(System.out::println);
+        Observable.interval(1000L,1000L, TimeUnit.MILLISECONDS)
+                .subscribe(s->{System.out.println(s);
+                System.out.println("발행!");});
 
         try {
-            Thread.sleep(2000L);
+            Thread.sleep(10000L);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -238,21 +241,18 @@ class ExampleObservableRepeat {
     }
 }
 
-/**
- * Start
- */
-class ExampleObservableStart {
-    public static void main(String[] args) {
-
-    }
-}
 
 /**
  * Timer
  */
 class ExampleObservableTimer {
     public static void main(String[] args) {
-        Observable.timer(5, TimeUnit.SECONDS).blockingSubscribe(s -> System.out.println("발행!"));
+        Observable.timer(5, TimeUnit.SECONDS).subscribe(s -> System.out.println("발행!"));
+        try {
+            Thread.sleep(10000L);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
 
